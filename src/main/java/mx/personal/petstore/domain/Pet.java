@@ -21,7 +21,8 @@ import lombok.ToString;
 
 
 @Entity
-@ToString(callSuper=true, includeFieldNames=true)
+@ToString(of = {"id","name","cost","extraInfo","typePet","deletedAt"}
+,includeFieldNames=true)
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Pet extends AuditModel {
 	
