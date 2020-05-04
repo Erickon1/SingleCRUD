@@ -24,6 +24,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	//LIQUIBASE
 	implementation 'org.liquibase:liquibase-core'
+	//AOP
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
 	//MYSQL
 	runtimeOnly 'mysql:mysql-connector-java'
 	//PROCESS OF ENTITIES

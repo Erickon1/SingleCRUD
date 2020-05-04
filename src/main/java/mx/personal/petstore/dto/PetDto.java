@@ -1,9 +1,11 @@
 package mx.personal.petstore.dto;
 
 import java.math.BigDecimal;
-
 import javax.persistence.Column;
 
+import lombok.ToString;
+
+@ToString( includeFieldNames=true)
 public class PetDto {
 
 	@Column(nullable = false)
