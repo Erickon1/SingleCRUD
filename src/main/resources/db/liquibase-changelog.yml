@@ -1,0 +1,8 @@
+databaseChangeLog:
+
+- include:
+    file: db/changelog/create_type_pet.yml
+- include:
+    file: db/changelog/create_pet.yml
+- include:
+    file: db/changelog/inserts.yml
