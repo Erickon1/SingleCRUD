@@ -1,9 +1,7 @@
 package mx.personal.petstore.domain;
 
-import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,15 +11,18 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.ToString;
+
 
 @Entity(name = "typePet")
 @Table(name = "type_pet")
-public class TypePet implements Serializable {
+@ToString(callSuper=true, includeFieldNames=true)
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
+public class TypePet extends AuditModel {
 
-	/**
-	 * this is required by Serializable
-	 */
-	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //drop error of hibernate_sequence
@@ -34,9 +35,8 @@ public class TypePet implements Serializable {
 	private String description;
 	
 	
-    @OneToMany(mappedBy="typePet", 
-    		cascade = CascadeType.ALL,
-    		fetch = FetchType.LAZY) 
+    @OneToMany(mappedBy="typePet",fetch = FetchType.LAZY) 
+    @JsonIgnore 
     private Set<Pet> pets;
 	
 	
@@ -58,6 +58,6 @@ public class TypePet implements Serializable {
 	public String getDescription() {
 		return this.description;
 	}
-	public Set<Pet> getPet(){return pets;}
+	public Set<Pet> getPets(){return pets;}
 	
 }
