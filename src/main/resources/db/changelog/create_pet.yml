@@ -1,0 +1,66 @@
+databaseChangeLog:
+- changeSet:
+    id: pet
+    author: erick.mercado
+    changes:
+    - createTable:
+        tableName: pet
+        columns:
+        - column:
+            name: id
+            type: BIGINT
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: name
+            type: java.sql.Types.VARCHAR(255)
+            constraints:
+              nullable: false
+              unique: true
+        - column:
+            name: cost
+            type: DECIMAL(12,2)
+            constraints:
+              nullable: false              
+        - column:
+            name: extra_info
+            type: java.sql.Types.VARCHAR(255)
+            constraints:
+              nullable: true              
+        - column:
+            name: created_at
+            type: DATETIME
+            constraints:
+              nullable: false
+        - column:
+            name: updated_at
+            type: DATETIME
+            constraints:
+              nullable: false
+        - column:
+            name: deleted_at
+            type: DATETIME
+            constraints:
+              nullable: true   
+        - column:
+            name: type_pet_id
+            type: INT
+            constraints:
+              nullable: false              
+              
+- changeSet:
+    id: pet_type_pet_fk
+    author: erick.mercado
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: type_pet_id
+        baseTableName: pet
+        constraintName: fk_pet_type_pet
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: type_pet              
+
+                       

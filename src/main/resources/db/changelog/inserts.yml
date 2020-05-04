@@ -1,0 +1,11 @@
+databaseChangeLog:
+- changeSet:
+    id: insert
+    author: erick.mercado
+    changes:
+      - sql:
+          sql: insert into type_pet (id, name, description, created_at, updated_at) values (1, "AVES",null,now(),now())
+      - sql:
+          sql: insert into type_pet (id, name, description, created_at, updated_at) values (2, "PERROS",null,now(),now())
+      - sql:
+          sql: insert into type_pet (id, name, description, created_at, updated_at) values (3, "GATOS",null,now(),now())
