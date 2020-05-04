@@ -13,13 +13,20 @@ repositories {
 }
 
 dependencies {
+	//DB
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	//SECURITY
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.security:spring-security-test'
+	//REST
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//LIQUIBASE
 	implementation 'org.liquibase:liquibase-core'
+	//MYSQL
 	runtimeOnly 'mysql:mysql-connector-java'
+	//PROCESS OF ENTITIES
 	compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 	
