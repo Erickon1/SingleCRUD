@@ -10,4 +10,6 @@ out/
 .project
 .settings
 .classpath
-log/
+logs/
+bin/
+src/main/resources/application-dev.properties
